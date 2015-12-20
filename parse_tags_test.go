@@ -8,7 +8,7 @@ import (
 type test struct {
 	Name       string
 	NamedTag   string `encre:"namedTag"`
-	IndexedTag string `encre:"1"`
+	IndexedTag int    `encre:"1"`
 }
 
 func TestGetMapping(t *testing.T) {
