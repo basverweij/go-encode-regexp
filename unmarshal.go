@@ -59,6 +59,11 @@ func (d *decoder) Decode(v interface{}) error {
 	// loop all sub matches
 	o := reflect.ValueOf(v).Elem()
 	for i := 1; i <= smCount; i++ {
+		if sm[i*2] == -1 {
+			// subgroup not matched
+			continue
+		}
+
 		name := ""
 		if n := m.NamedTags[smNames[i]]; n != "" {
 			name = n // use mapped named tag
